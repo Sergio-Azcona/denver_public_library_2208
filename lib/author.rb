@@ -10,13 +10,22 @@ class Author
     @first_name + ' ' + @last_name
   end
 
+  #should take in Book attributes
   def write(book, date)
-    catalog = []
-    @books.each do |book|
-      catalog[book] = book.date
-      require 'pry';binding.pry
-    end
-    catalog
+    
+    @books << Book.new(book)
+    # require 'pry';binding.pry
+
+   
+    # @books.each do |book|
+      # book.publication_year
+    # end
+    # catalog = []
+    # @books.each do |book|
+    #   require 'pry';binding.pry
+    #   catalog[book] = book.date
+    # end
+    # catalog.flatten
   end
 
 end
