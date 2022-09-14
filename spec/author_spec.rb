@@ -19,17 +19,12 @@ RSpec.describe Author do
   end
 
   # charlotte_bronte.books
-  it "adds books to an Author's catalog as the author publishes them" do
+  it "adds Books to an Author's catalog as the author publishes them" do
     jane_eyre = charlotte_bronte.write("Jane Eyre", "October 16, 1847")
+    expect(charlotte_bronte.books).to eq([jane_eyre])  
+    expect(jane_eyre.title).to eq("Jane Eyre") 
     # require 'pry';binding.pry
-    expect(charlotte_bronte.books).to eq(jane_eyre)  
     villette = charlotte_bronte.write("Villette", "1853")
     expect(charlotte_bronte.books).to eq([jane_eyre,villette]) 
   end
-
-  # jane_eyre.title
-
-
-  # charlotte_bronte.books
-
 end

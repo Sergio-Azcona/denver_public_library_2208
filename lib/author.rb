@@ -10,23 +10,18 @@ class Author
     @first_name + ' ' + @last_name
   end
 
-  #should take in Book attributes
   def write(title, date)
-    book = Book.new({})
-    @books << book
-    # require 'pry';binding.pry
-
-   
-    @books.each do |book|
-      book << book.title
-    end
-    require 'pry';binding.pry
-    # catalog = []
-    # @books.each do |book|
-    #   require 'pry';binding.pry
-    #   catalog[book] = book.date
-    # end
-    # catalog.flatten
+    new_book = {
+      author_first_name: @first_name, #why symbols only? 
+      author_last_name: @last_name, #why wont hash rocket work?
+      title: title,
+      publication_date: date    
+    } 
+    
+    published_book = Book.new(new_book)
+    @books << published_book
+    
+    published_book #why call it at the end if we add it to the @books array
   end
 
 end
